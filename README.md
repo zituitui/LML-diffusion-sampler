@@ -13,9 +13,9 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2505.24222-b31b1b.svg)](https://www.arxiv.org/abs/2505.24222)&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)&nbsp;
 
-<img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 95%;">
+<img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 100%;">
 
-<img src="assets/lml-celeb-visual-1.png" alt="celeb Results" style="width: 85%;">
+<img src="assets/lml-celeb-visual-1.png" alt="celeb Results" style="width: 70%;">
 
 </div>
 
