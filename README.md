@@ -1,6 +1,7 @@
-# LML-diffusion-sampler
-
 <div align="center">
+
+# Improve Diffusion Image Generation Quality using Levenberg-Marquardt-Langevin
+
 This repository is the official implementation of the **Arxiv 2025** paper:
 _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Order Levenberg-Marquardt-Langevin"_ 
 
@@ -12,4 +13,16 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2505.24222-b31b1b.svg)](https://www.arxiv.org/abs/2505.24222)&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)&nbsp;
 
+<img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 85%;">
+
+
 </div>
+
+
+
+
+
+
+
+
+
