@@ -13,13 +13,22 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2505.24222-b31b1b.svg)](https://www.arxiv.org/abs/2505.24222)&nbsp;
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)&nbsp;
 
-<img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 85%;">
+<img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 95%;">
 
+<img src="assets/lml-celeb-visual-1.png" alt="celeb Results" style="width: 85%;">
 
 </div>
 
+## The intuition of our LML diffusion sampler
+
+![anneal](assets/anneal_path.drawio-1.png)
+> **Schematic comparison** between our LML method and baselines. While previous works mainly focus on intriguing designs along the annealing path to improve diffusion sampling, they leave operations at specific noise levels to be performed using first-order Langevin. Our approach proposes to leverage the Levenberg-Marquardt approximated Hessian geometry to guide the Langevin update to be more accurate.
 
 
+![Some edits](assets/newton_algos.drawio-1.png)
+> The relation between optimization algorithms and MCMC sampling algorithms. We initially wanted to develop a diffusion sampler utilizing Hessian geometry, following the path of Newton-Langevin dynamics.
+However, this approach proved to be highly computationally expensive within the DM context.
+Drawing inspiration from the Levenberg-Marquardt method used in optimization, our method incorporates low-rank approximation and damping techniques. This enables us to obtain the Hessian geometry in a computationally affordable manner. Subsequently, we use this approximated Hessian geometry to guide the Langevin updates.
 
 
 
