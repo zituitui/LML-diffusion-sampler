@@ -30,8 +30,33 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 However, this approach proved to be highly computationally expensive within the DM context.
 Drawing inspiration from the Levenberg-Marquardt method used in optimization, our method incorporates low-rank approximation and damping techniques. This enables us to obtain the Hessian geometry in a computationally affordable manner. Subsequently, we use this approximated Hessian geometry to guide the Langevin updates.
 
+## 👨🏻‍💻 Run the code 
+### 1) Get start
+
+* Python 3.8.12
+* CUDA 11.7
+* NVIDIA A100 40GB PCIe
+* Torch 2.0.0
+* Torchvision 0.14.0
+
+Please follow **[diffusers](https://github.com/huggingface/diffusers)** to install diffusers.
+
+### 2) Run
+first, please switch to the root directory.
+
+#### CIFAR-10 sampling
+[TODO]
+#### CelebA-HQ sampling
+[TODO]
+#### SD-15, SD-2b COCO-14 sampling
+[TODO]
 
 
+## 🪪 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
 
-
-
+## 📩 Contact me
+My e-mail address:
+```
+wangfangyikang@zju.edu.cn
+```
