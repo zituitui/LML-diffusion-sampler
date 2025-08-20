@@ -6,17 +6,17 @@ import os
 import json
 import argparse
 sys.path.append(os.getcwd())
-from diffusers import DDPMPipeline, DDIMScheduler, PNDMScheduler, UniPCMultistepScheduler, DPMSolverMultistepScheduler
+from diffusers import LDMPipeline, DDIMScheduler, PNDMScheduler, UniPCMultistepScheduler, DPMSolverMultistepScheduler
 from scheduler.scheduling_dpmsolver_multistep_lm import DPMSolverMultistepLMScheduler
 from scheduler.scheduling_ddim_lm import DDIMLMScheduler
 
 def main():
-    parser = argparse.ArgumentParser(description="sampling script for CIFAR-10.")
+    parser = argparse.ArgumentParser(description="sampling script for CelebA-HQ.")
     parser.add_argument('--test_num', type=int, default=1)
     parser.add_argument('--start_index', type=int, default=0)
     parser.add_argument('--batch_size', type=int, default=4)
     parser.add_argument('--num_inference_steps', type=int, default=20)
-    parser.add_argument('--sampler_type', type = str,default='lag', choices=[ 'pndm', 'ddim', 'dpm++', 'dpm','dpm_lm', 'unipc'])
+    parser.add_argument('--sampler_type', type = str,default='lag', choices=[ 'pndm', 'ddim_lm', 'ddim', 'dpm++', 'dpm','dpm_lm', 'unipc'])
     parser.add_argument('--save_dir', type=str, default='/mnt/chongqinggeminiceph1fs/geminicephfs/mm-base-vision/felixfwang/result/0402')
     parser.add_argument('--model_id', type=str,
                         default='/mnt/chongqinggeminiceph1fs/geminicephfs/mm-base-vision/felixfwang/ddpm_ema_cifar10')
@@ -38,11 +38,11 @@ def main():
         dtype = torch.bfloat16
 
     start_index = args.start_index
-    device = args.device
     batch_size = args.batch_size
     sampler_type = args.sampler_type
     test_num = args.test_num
     num_inference_steps = args.num_inference_steps
+    device = args.device
     lamb = args.lamb
     kappa = args.kappa
     model_id = args.model_id
@@ -53,8 +53,9 @@ def main():
 
     with torch.no_grad():
         # load pipeline
-        pipe = DDPMPipeline.from_pretrained(model_id, torch_dtype=dtype)
+        pipe = LDMPipeline.from_pretrained(model_id, torch_dtype=dtype)
         pipe.unet.to(device)
+        pipe.vqvae.to(device)
 
         # load scheduler
         if sampler_type in ['pndm']:
@@ -77,6 +78,11 @@ def main():
             pipe.scheduler.lm = False
         elif sampler_type in ['ddim']:
             pipe.scheduler = DDIMScheduler.from_config(pipe.scheduler.config)
+        elif sampler_type in ['ddim_lm']:
+            pipe.scheduler = DDIMLMScheduler.from_config(pipe.scheduler.config)
+            pipe.scheduler.lamb = lamb
+            pipe.scheduler.lm = True
+            pipe.scheduler.kappa = kappa
         elif sampler_type in ['unipc']:
             pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config)
 
