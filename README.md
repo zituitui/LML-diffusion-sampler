@@ -46,81 +46,81 @@ Please follow **[diffusers](https://github.com/huggingface/diffusers)** to insta
 ### 2) Sampling
 first, please switch to the root directory.
 
-#### CIFAR-10 sampling
-For baseline, you can do CIAFR-10 sampling as follows, choose sampler_type within [ddim, pndm, dpm, dpm++, unipc]:
-```bash
-python3 ./scripts/cifar10.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ddpm_ema_cifar10 --sampler_type ddim
-```
-For our LML sampler, there is an additional $\lambda$ hyperparameter:
-```bash
-python3 ./scripts/cifar10.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ddpm_ema_cifar10 --sampler_type dpm_lm --lamb 0.0008
-```
+- #### CIFAR-10 sampling
+  For baseline, you can do CIAFR-10 sampling as follows, choose sampler_type within [ddim, pndm, dpm, dpm++, unipc]:
+  ```bash
+  python3 ./scripts/cifar10.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ddpm_ema_cifar10 --sampler_type ddim
+  ```
+  For our LML sampler, there is an additional $\lambda$ hyperparameter:
+  ```bash
+  python3 ./scripts/cifar10.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ddpm_ema_cifar10 --sampler_type dpm_lm --lamb 0.0008
+  ```
 
-For the optimal choice of LML, we have:
-|         | 5 NFEs  | 6 NFEs  | 7 NFEs  | 8 NFEs  | 9 NFEs  | 10 NFEs | 12 NFEs | 15 NFEs | 20 NFEs | 30 NFEs | 50 NFEs | 100 NFEs |
-|---------|---------|---------|---------|---------|---------|----------|----------|----------|----------|----------|----------|-----------|
-| optimal value of lamb     | 0.0008  | 0.0008  | 0.001   | 0.001   | 0.001   | 0.0008   | 0.001    | 0.001    | 0.0005   | 0.0003   | 0.0001   | 0.00005   |
-
-
-
-#### CelebA-HQ sampling
-For baseline:
-```bash
-python3 ./scripts/celeba.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ldm-celebahq-256 --sampler_type ddim
-```
-
-For our LML:
-```bash
-python3 ./scripts/celeba.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ldm-celebahq-256 --sampler_type ddim_lm --lamb 0.005
-```
-
-#### SD-15 and SD-2b on MS-COCO sampling
-```bash
-python3 ./scripts/StableDiffusion_COCO.py --test_num 30002 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/stable-diffusion-v1-5 --sampler_type dpm_lm --lamb 0.001
-```
-
-For the optimal choice of LML on MS-COCO, for NFEs of {5, 6, 7, 8, 9, 10, 12, 15}, we always choose $\lambda = 0.001$:
-<!-- |NFEs| 5    | 6    | 7    | 8    | 9    | 10   | 12   | 15   |
-|---------|------|------|------|------|------|------|------|------|
-| SD-15   | -- | -- | 0.001 | - | - | -| 0.001 | 0.001 |
-| SD-2b   | -- | - | - | - | - | - | - | - | -->
+  For the optimal choice of LML, we have:
+  |         | 5 NFEs  | 6 NFEs  | 7 NFEs  | 8 NFEs  | 9 NFEs  | 10 NFEs | 12 NFEs | 15 NFEs | 20 NFEs | 30 NFEs | 50 NFEs | 100 NFEs |
+  |---------|---------|---------|---------|---------|---------|----------|----------|----------|----------|----------|----------|-----------|
+  | optimal value of lamb     | 0.0008  | 0.0008  | 0.001   | 0.001   | 0.001   | 0.0008   | 0.001    | 0.001    | 0.0005   | 0.0003   | 0.0001   | 0.00005   |
 
 
-#### SD-15, SD-2b, SD-XL, and PixArt-$\alpha$ on T2i-compbench sampling
-[Coming Soon] ⏳
 
-#### Use our LML diffusion sampler with ControlNet
+- #### CelebA-HQ sampling
+  For baseline:
+  ```bash
+  python3 ./scripts/celeba.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ldm-celebahq-256 --sampler_type ddim
+  ```
 
-**canny**
-```bash
-python3 ./scripts/control_net_canny.py --num_inference_steps 10  --original_image_path /xxx/xxx/data/input_image_vermeer.png --controlnet_dir /xxx/xxx/sd-controlnet-canny --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
-```
+  For our LML:
+  ```bash
+  python3 ./scripts/celeba.py --test_num 1 --batch_size 1 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/ldm-celebahq-256 --sampler_type ddim_lm --lamb 0.005
+  ```
 
-**depth**
-```bash
-python3 ./scripts/control_net_depth.py --num_inference_steps 10  --controlnet_dir /xxx/xxx/control_v11f1p_sd15_depth --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
-```
+  - #### SD-15 and SD-2b on MS-COCO sampling
+  ```bash
+  python3 ./scripts/StableDiffusion_COCO.py --test_num 30002 --num_inference_steps 10  --save_dir YOUR/SAVE/DIR --model_id xx/xx/stable-diffusion-v1-5 --sampler_type dpm_lm --lamb 0.001
+  ```
 
-**pose**
-```bash
-python3 ./scripts/control_net_canny.py --num_inference_steps 10 --controlnet_dir /xxx/xxx/sd-controlnet-openpose --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
-```
+  For the optimal choice of LML on MS-COCO, for NFEs of {5, 6, 7, 8, 9, 10, 12, 15}, we always choose $\lambda = 0.001$:
+  <!-- |NFEs| 5    | 6    | 7    | 8    | 9    | 10   | 12   | 15   |
+  |---------|------|------|------|------|------|------|------|------|
+  | SD-15   | -- | -- | 0.001 | - | - | -| 0.001 | 0.001 |
+  | SD-2b   | -- | - | - | - | - | - | - | - | -->
 
 
-#### LML sampling on FLUX
-[Coming Soon] ⏳
+- #### SD-15, SD-2b, SD-XL, and PixArt-$\alpha$ on T2i-compbench sampling
+  [Coming Soon] ⏳
+
+- #### Use our LML diffusion sampler with ControlNet
+
+  **canny**
+  ```bash
+  python3 ./scripts/control_net_canny.py --num_inference_steps 10  --original_image_path /xxx/xxx/data/input_image_vermeer.png --controlnet_dir /xxx/xxx/sd-controlnet-canny --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
+  ```
+
+  **depth**
+  ```bash
+  python3 ./scripts/control_net_depth.py --num_inference_steps 10  --controlnet_dir /xxx/xxx/control_v11f1p_sd15_depth --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
+  ```
+
+  **pose**
+  ```bash
+  python3 ./scripts/control_net_canny.py --num_inference_steps 10 --controlnet_dir /xxx/xxx/sd-controlnet-openpose --sd_dir /xxx/xxx/stable-diffusion-v1-5  --save_dir YOUR/SAVE/DIR  --sampler_type dpm_lm --lamb 0.001
+  ```
+
+
+- #### LML sampling on FLUX
+  [Coming Soon] ⏳
 
 
 
 ### 3) Evaluation
-#### FID evaluation on CIFAR-10
-[Coming Soon] ⏳
+- #### FID evaluation on CIFAR-10
+  [Coming Soon] ⏳
 
-#### FID evaluation on MS-COCO
-[Coming Soon] ⏳
+- #### FID evaluation on MS-COCO
+  [Coming Soon] ⏳
 
-#### T2I-compbench evaluation 
-[Coming Soon] ⏳
+- #### T2I-compbench evaluation 
+  [Coming Soon] ⏳
 
 
 
@@ -139,7 +139,7 @@ If our work assists your research, feel free to give us a star ⭐ or cite us us
 ```
 
 ## 📩 Contact me
-My e-mail address:
+Our e-mail address:
 ```
-wangfangyikang@zju.edu.cn
+wangfangyikang@zju.edu.cn, qianlei33@zju.edu.cn, liyinan@zju.edu.cn
 ```
