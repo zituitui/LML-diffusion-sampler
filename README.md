@@ -87,7 +87,16 @@ first, please switch to the root directory.
 
 
 - #### SD-15, SD-2b, SD-XL, and PixArt-$\alpha$ on T2i-compbench sampling
-  [Coming Soon] ⏳
+  Before running the scripts, make sure to clone T2I-CompBench repository. Generated images are stored in the directory "save_dir/model/dataset_category/sampler_type/samples".
+
+  For baseline, you can do T2i-compbench sampling as follows, choose sampler_type within [ddim, pndm, dpm, dpm++, unipc] and model within [sd15, sd2_base, sdxl, pixart]:
+  ```bash
+  python3 ./scripts/StableDiffusion_PixArt_T2i_Sampling.py --dataset_category color --dataset_path PATH/TO/T2I-COMPBENCH --test_num 10 --num_inference_steps 10 --model_dir YOUR/MODEL/DIR --save_dir YOUR/SAVE/DIR --model sd15 --sampler_type ddim
+  ```
+  For our LML sampler, there is an additional $\lambda$ hyperparameter:
+  ```bash
+  python3 ./scripts/StableDiffusion_PixArt_T2i_Sampling.py --dataset_category color --dataset_path PATH/TO/T2I-COMPBENCH --test_num 10 --num_inference_steps 10 --model_dir YOUR/MODEL/DIR --save_dir YOUR/SAVE/DIR --model sd15 --sampler_type dpm_lm --lamb 0.006
+  ```
 
 - #### Use our LML diffusion sampler with ControlNet
 
@@ -108,8 +117,14 @@ first, please switch to the root directory.
 
 
 - #### LML sampling on FLUX
-  [Coming Soon] ⏳
-
+  For baseline:
+  ```bash
+  python3 ./scripts/FLUX_T2i_Sampling.py --dataset_category color --dataset_path PATH/TO/T2I-COMPBENCH --test_num 10 --num_inference_steps 10 --model_id YOUR/MODEL/DIR --save_dir YOUR/SAVE/DIR --sampler_type fm_euler
+  ```
+  For our LML:
+  ```bash
+  python3 ./scripts/FLUX_T2i_Sampling.py --dataset_category color --dataset_path PATH/TO/T2I-COMPBENCH --test_num 10 --num_inference_steps 10 --model_id YOUR/MODEL/DIR --save_dir YOUR/SAVE/DIR --sampler_type lml_euler --lamb 0.01
+  ```
 
 
 ### 3) Evaluation
