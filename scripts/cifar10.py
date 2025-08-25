@@ -17,9 +17,9 @@ def main():
     parser.add_argument('--batch_size', type=int, default=4)
     parser.add_argument('--num_inference_steps', type=int, default=20)
     parser.add_argument('--sampler_type', type = str,default='lag', choices=[ 'pndm', 'ddim', 'dpm++', 'dpm','dpm_lm', 'unipc'])
-    parser.add_argument('--save_dir', type=str, default='/mnt/chongqinggeminiceph1fs/geminicephfs/mm-base-vision/felixfwang/result/0402')
+    parser.add_argument('--save_dir', type=str, default='/xxx/xxx')
     parser.add_argument('--model_id', type=str,
-                        default='/mnt/chongqinggeminiceph1fs/geminicephfs/mm-base-vision/felixfwang/ddpm_ema_cifar10')
+                        default='/xxx/xxx/ddpm_ema_cifar10')
     parser.add_argument('--lamb', type=float, default=1.0)
     parser.add_argument('--kappa', type=float, default=0.0)
     parser.add_argument('--dtype', type=str, default='fp32')

@@ -25,7 +25,7 @@ import numpy as np
 
 
 def main():
-    parser = argparse.ArgumentParser(description="sampling script for ControlNet-canny on chongqing machine.")
+    parser = argparse.ArgumentParser(description="sampling script for ControlNet-canny.")
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--num_inference_steps', type=int, default=20)
     parser.add_argument('--guidance', type=float, default=7.5)
