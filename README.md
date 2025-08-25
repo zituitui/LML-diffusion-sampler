@@ -135,7 +135,26 @@ first, please switch to the root directory.
   [Coming Soon] ⏳
 
 - #### T2I-compbench evaluation 
-  [Coming Soon] ⏳
+  Please refer to the [T2I-CompBench](https://github.com/Karine-Huang/T2I-CompBench) guide. Create a new environment and install the dependencies for T2I-CompBench evaluation.
+  For testing combinations of multiple models and samplers, we also provide a convenient one-click script. Place the script file in the corresponding directory of **T2I-CompBench** to replace the origin script. For example:
+  ```sh
+  # BLIP-VQA for Attribute Binding
+  cd T2I-CompBench
+  bash BLIPvqa_eval/test.sh
+        ||
+        ||
+        \/
+  cp evaluations/T2I-CompBench/BLIPvqa_test.sh T2I-CompBench/BLIPvqa_eval
+  cd T2I-CompBench
+  bash BLIPvqa_eval/BLIPvqa_test.sh 'save_dir'
+  ```
+  The directory structure of **'save_dir'** should satisfy the following format:
+  ```
+  {save_dir}/model/dataset_category/sampler_type/samples/
+                                                ├── a green bench and a blue bowl_000000.png
+                                                ├── a green bench and a blue bowl_000001.png
+                                                └──...
+  ```
 
 
 
