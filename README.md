@@ -2,7 +2,7 @@
 
 # 🚀🚀🚀 Improve Diffusion Image Generation Quality using Levenberg-Marquardt-Langevin
 
-We introduce **LML**, an accelerated sampler for diffusion models leveraging the second-order Hessian geometry. Our LML imlpementation is completely compatible with the **[diffusers](https://github.com/huggingface/diffusers)**.
+We introduce **LML**, an accelerated sampler for diffusion models leveraging the second-order Hessian geometry. Our LML implementation is completely compatible with the **[diffusers](https://github.com/huggingface/diffusers)**.
 
 This repository is the official implementation of the **ICCV 2025** paper:
 _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Order Levenberg-Marquardt-Langevin"_ 
@@ -13,6 +13,7 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 > <sup>1</sup>Zhejiang University <sup>2</sup>WeChat Vision, Tencent Inc <sup>3</sup>Shanghai Jiao Tong University <sup>4</sup>Tencent Lightspeed Studio
 
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2505.24222-b31b1b.svg)](https://www.arxiv.org/abs/2505.24222)&nbsp;
+[![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/zituitui/LML-diffusion-sampler)
 [![Github](https://img.shields.io/badge/Github-LML-blue)](https://github.com/zituitui/LML-diffusion-sampler)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)&nbsp;
 
