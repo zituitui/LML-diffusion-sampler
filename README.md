@@ -158,6 +158,33 @@ first, please switch to the root directory.
                                                 └──...
   ```
 
+### 4) Pretrained Diffusion Models
+We adopt well-pretrained diffusion models from the community. Thanks for these contributions! Here we list the links to the pretrained diffusion models.
+
+ddpm-ema-cifar10:
+     
+https://github.com/VainF/Diff-Pruning/releases/download/v0.0.1/ddpm_ema_cifar10.zip
+
+ldm-celebahq-256:
+    
+https://huggingface.co/CompVis/ldm-celebahq-256
+    
+stable-diffusion-v1.5:
+    
+https://huggingface.co/runwayml/stable-diffusion-v1-5
+
+stable-diffusion-v2-base:
+
+https://huggingface.co/stabilityai/stable-diffusion-2-base
+
+stable-diffusion-XL:
+
+https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0
+
+PixArt-α:
+
+https://huggingface.co/PixArt-alpha/PixArt-XL-2-512x512
+
 
 
 ## 🪪 License
