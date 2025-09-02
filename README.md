@@ -14,7 +14,9 @@ _"Unleashing High-Quality Image Generation in Diffusion Sampling Using Second-Or
 
 [![arXiv](https://img.shields.io/badge/arXiv%20paper-2505.24222-b31b1b.svg)](https://www.arxiv.org/abs/2505.24222)&nbsp;
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Models-yellow)](https://huggingface.co/zituitui/LML-diffusion-sampler)
-[![Github](https://img.shields.io/badge/Github-LML-blue)](https://github.com/zituitui/LML-diffusion-sampler)
+[![Github](https://img.shields.io/badge/Github-LML-white)](https://github.com/zituitui/LML-diffusion-sampler)
+[![Zhihu](https://img.shields.io/badge/%E7%9F%A5%E4%B9%8E-LML-informational.svg)](https://zhuanlan.zhihu.com/p/1944817402341724362)
+[![Xiaohongshu](https://img.shields.io/badge/%E5%B0%8F%E7%BA%A2%E4%B9%A6-LML-ff2442.svg)](https://www.xiaohongshu.com/explore/68b16f1d000000001b033ab1?source=webshare&xhsshare=pc_web&xsec_token=ABQjYHRC_N07F42JR0lCZyjQ9Ty73T8suGIpcG-8AI6Pg=&xsec_source=pc_share)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)&nbsp;
 
 <img src="assets/lml-sd-visual_2_new-1.png" alt="SD Results" style="width: 100%;">
